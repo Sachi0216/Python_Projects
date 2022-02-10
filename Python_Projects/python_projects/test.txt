@@ -1,2 +1,0 @@
-I love Python, it's so fun!
-Hello World!
