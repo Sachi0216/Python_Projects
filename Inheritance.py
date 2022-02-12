@@ -22,8 +22,10 @@ class Human(Organism):
     legs = 2
     arms = 2
     origin = 'Earth'
+    Height = '6 ft'
+    weight = '175 lbs'
 
-    def ingenuity(self):
+    def information(self):
         msg = "\nCreates a deadly weapon using only a paper clip, chewing gum, and a roll of duct tape!"
         return msg
 
@@ -35,8 +37,10 @@ class Dog(Organism):
     arms = 0
     dna = "Sequence B"
     origin = 'Earth'
+    color = 'Black'
+    Breed = 'Husky'
 
-    def bite(self):
+    def information(self):
         msg = "\nEmits a loud, menacing growl and bites down ferociously on it's target!"
         return msg
 
@@ -50,7 +54,7 @@ class Bacterium(Organism):
     dna = "Sequence C"
     origin = 'Mars'
 
-    def replication(self):
+    def information(self):
         msg = "\nThe cells begin to divide and multiply into two seperate organisms!"
         return msg
 
@@ -67,14 +71,14 @@ class Bacterium(Organism):
 if __name__ == "__main__":
     human = Human()
     print(human.information())
-    print(human.ingenuity())
+    
 
 
     dog = Dog()
     print(dog.information())
-    print(dog.bite())
+    
 
 
     bacteria = Bacterium()
     print(bacteria.information())
-    print(bacteria.replication())
+    
