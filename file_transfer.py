@@ -6,7 +6,7 @@ from tkinter import filedialog
 # allows users to open file folder and choose files/add new/search
 def openFile():
     filepath = filedialog.askopenfilename(initialdir="C:\\Users\\BigDipper6969\\OneDrive\\Desktop\\Daily projects",
-                                          title="Open file okay?",
+                                          title="File Browser",
                                           filetypes= (("Daily files","*.txt"),
                                           ("all files","*.*")))
     file = open(filepath,'r')
