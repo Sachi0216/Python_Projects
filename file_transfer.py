@@ -1,31 +1,68 @@
+from distutils import filelist
 from pathlib import Path
+import tkinter as tk
 import shutil
 import os
 from tkinter import *
 from tkinter import filedialog
-# allows users to open file folder and choose files/add new/search
-def openFile():
-    filepath = filedialog.askopenfilename(initialdir="C:\\Users\\BigDipper6969\\OneDrive\\Desktop\\Daily projects",
-                                          title="File Browser",
-                                          filetypes= (("Daily files","*.txt"),
-                                          ("all files","*.*")))
-    file = open(filepath,'r')
-    print(file.read())
-    file.close()
+import tkinter
 
+from numpy import absolute
+
+    
 window = Tk()
-button = Button(text="Open",command=openFile)
+window.title('Files')
+window.geometry("200x120")
+
+# widgets
+label = tkinter.Label(window, text="Source")
+sourceEntry = tkinter.Entry(window)
+
+labelTransfer = tkinter.Label(window, text="Destination")
+destEntry = tkinter.Entry(window)
+
+button1 = tkinter.Button(window, text="Source", command=lambda:sourcefolder())
+button2 = tkinter.Button(window, text="Destination", command=lambda:destFolder())
+button = tkinter.Button(window, text="Move", command=lambda:transferfiles())
+
+label.pack()
+sourceEntry.pack()
+labelTransfer.pack()
+destEntry.pack()
 button.pack()
+button1.pack()
+button2.pack()
+
+def sourcefolder():
+    src = filedialog.askdirectory()
+    sourceEntry.insert(0, src)
+
+def destFolder():
+    dest = filedialog.askdirectory()
+    destEntry.insert(0, dest)
+
+def transferfiles():
+    src = sourceEntry.get()
+    dest = destEntry.get()
+    fileList = os.listdir(src) 
+
+    for file in fileList:
+        absolutePath = os.path.join(src, file)
+        shutil.move(absolutePath, dest)
 window.mainloop()
 
+# source = "\\Users\\BigDipper6969\\OneDrive\\Desktop\\folderA"
 
-# set where the source of the files are
-source = "\\Users\\BigDipper6969\\OneDrive\\Desktop\\folderA"
+# # set destination path to folder b
 
-# set destination path to folder b
-destination = "\\Users\\BigDipper6969\\OneDrive\\Desktop\\folderB"
-files = os.listdir(source)
+# destination = "\\Users\\BigDipper6969\\OneDrive\\Desktop\\folderB"
+# files = os.listdir(source)
 
 
-for i in files:
-    shutil.move(source, destination)
+# for i in files:
+#     shutil.move(source, destination)
+
+
+
+
+# root.mainloop()
